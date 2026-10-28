@@ -32,3 +32,49 @@ Consulta [la bitácora técnica paso a paso](docs/10-profiling-vulkan-fp16-2026-
 La documentación se preparó a partir de un registro de terminal de 5,687 líneas proporcionado por la persona operadora. La transcripción original se mantiene fuera del repositorio hasta terminar una revisión de información sensible. Los scripts son referencias auditables, no instaladores validados en una máquina limpia. El repositorio incluye una copia anterior de `src/retinaface.cpp`, pero faltan las versiones instrumentadas recientes y sus logs para reproducir exactamente los experimentos actuales.
 
 **Importante:** detección de rostro no equivale a reconocimiento de identidad ni autenticación.
+
+---
+
+## RetinaFace en vivo: webcam + Vulkan + MJPEG
+
+**Actualización: 28 de octubre de 2026**
+
+Se implementó un sistema de detección facial continua sobre
+Arduino UNO Q, utilizando RetinaFace MobileNet 0.25,
+ncnn y aceleración Vulkan mediante la GPU Adreno 702.
+
+### Funcionalidades implementadas
+
+- Captura de video mediante webcam Logitech C920.
+- Inferencia facial continua con ncnn y Vulkan.
+- Detección de múltiples rostros.
+- Visualización de bounding boxes, landmarks y confianza.
+- Generación continua de imágenes JPEG procesadas.
+- Transmisión MJPEG mediante un servidor HTTP en Python.
+- Visualización desde un navegador en la red local.
+
+### Resultados iniciales
+
+| Métrica | Resultado |
+|---|---|
+| Resolución de captura | 640 × 480 |
+| Tiempo de inferencia GPU | Aproximadamente 475–513 ms |
+| Rendimiento de inferencia | Aproximadamente 2 FPS |
+| Rostros observados simultáneamente | Hasta 6 |
+| GPU | Adreno 702 |
+| Backend | ncnn Vulkan |
+
+### Código fuente
+
+- [`src/retinaface_webcam.cpp`](src/retinaface_webcam.cpp)
+- [`web/stream_server.py`](web/stream_server.py)
+
+### Documentación completa
+
+Consultar:
+
+[`docs/11-retinaface-webcam-mjpeg.md`](docs/11-retinaface-webcam-mjpeg.md)
+
+**Nota de seguridad:** el servidor MJPEG está destinado a
+pruebas en una red local de confianza. No incluye
+autenticación ni cifrado HTTPS.

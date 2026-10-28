@@ -14,3 +14,8 @@ CMakeFiles/
 *.key
 *.log
 __pycache__/
+
+# Preserve reproducible RetinaFace FP16 benchmark logs
+!logs/retinaface-fp16/*.log
+!logs/retinaface-historical/*.log
+!logs/build-diagnostics/*.log

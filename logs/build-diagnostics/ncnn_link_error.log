@@ -1,0 +1,149 @@
+Change Dir: '/home/arduino/solipsis-edge-ai/ncnn/build'
+
+Run Build Command(s): /usr/bin/ninja -v -j 2 retinaface_profiling
+[1/1] : && /usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=examples/CMakeFiles/retinaface_profiling.dir/link.d examples/CMakeFiles/retinaface_profiling.dir/retinaface_profiling.cpp.o -o examples/retinaface_profiling  src/libncnn.a  /usr/lib/aarch64-linux-gnu/libopencv_highgui.so.4.10.0  /usr/lib/aarch64-linux-gnu/libopencv_videoio.so.4.10.0  /usr/lib/gcc/aarch64-linux-gnu/14/libgomp.so  /usr/lib/aarch64-linux-gnu/libpthread.a  -ldl  glslang/SPIRV/libSPIRV.a  glslang/glslang/libglslang.a  /usr/lib/aarch64-linux-gnu/libopencv_imgcodecs.so.4.10.0  /usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.10.0  /usr/lib/aarch64-linux-gnu/libopencv_core.so.4.10.0 && :
+FAILED: examples/retinaface_profiling 
+: && /usr/bin/c++ -O3 -DNDEBUG -Wl,--dependency-file=examples/CMakeFiles/retinaface_profiling.dir/link.d examples/CMakeFiles/retinaface_profiling.dir/retinaface_profiling.cpp.o -o examples/retinaface_profiling  src/libncnn.a  /usr/lib/aarch64-linux-gnu/libopencv_highgui.so.4.10.0  /usr/lib/aarch64-linux-gnu/libopencv_videoio.so.4.10.0  /usr/lib/gcc/aarch64-linux-gnu/14/libgomp.so  /usr/lib/aarch64-linux-gnu/libpthread.a  -ldl  glslang/SPIRV/libSPIRV.a  glslang/glslang/libglslang.a  /usr/lib/aarch64-linux-gnu/libopencv_imgcodecs.so.4.10.0  /usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.10.0  /usr/lib/aarch64-linux-gnu/libopencv_core.so.4.10.0 && :
+/usr/bin/ld: examples/CMakeFiles/retinaface_profiling.dir/retinaface_profiling.cpp.o: in function `generate_anchors(int, ncnn::Mat const&, ncnn::Mat const&) [clone .constprop.0]':
+retinaface_profiling.cpp:(.text+0x2a8): undefined reference to `ncnn::Mat::create(int, int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: examples/CMakeFiles/retinaface_profiling.dir/retinaface_profiling.cpp.o: in function `detect_retinaface(cv::Mat const&, std::vector<FaceObject, std::allocator<FaceObject> >&, bool) [clone .constprop.0] [clone .isra.0]':
+retinaface_profiling.cpp:(.text+0x984): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: retinaface_profiling.cpp:(.text+0x9d0): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: retinaface_profiling.cpp:(.text+0x112c): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: retinaface_profiling.cpp:(.text+0x1178): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: retinaface_profiling.cpp:(.text+0x18f0): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: examples/CMakeFiles/retinaface_profiling.dir/retinaface_profiling.cpp.o:retinaface_profiling.cpp:(.text+0x193c): more undefined references to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)' follow
+/usr/bin/ld: src/libncnn.a(gpu.cpp.o): in function `ncnn::VulkanDevicePrivate::create_dummy_buffer_image()':
+gpu.cpp:(.text+0x215c): undefined reference to `ncnn::VkMat::create(int, unsigned long, ncnn::VkAllocator*)'
+/usr/bin/ld: gpu.cpp:(.text+0x2204): undefined reference to `ncnn::VkImageMat::create(int, unsigned long, ncnn::VkAllocator*)'
+/usr/bin/ld: gpu.cpp:(.text+0x2218): undefined reference to `ncnn::VkImageMat::create(int, unsigned long, ncnn::VkAllocator*)'
+/usr/bin/ld: src/libncnn.a(gpu.cpp.o): in function `ncnn::VulkanDevicePrivate::get_utility_operator(int, int, int) const':
+gpu.cpp:(.text+0xbbdc): undefined reference to `ncnn::create_layer_vulkan(int)'
+/usr/bin/ld: src/libncnn.a(mat_pixel.cpp.o): in function `ncnn::from_rgb(unsigned char const*, int, int, int, ncnn::Mat&, ncnn::Allocator*) [clone .constprop.0] [clone .isra.0]':
+mat_pixel.cpp:(.text+0x34): undefined reference to `ncnn::Mat::create(int, int, int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(mat_pixel.cpp.o): in function `ncnn::from_rgb2bgr(unsigned char const*, int, int, int, ncnn::Mat&, ncnn::Allocator*) [clone .constprop.0] [clone .isra.0]':
+mat_pixel.cpp:(.text+0x324): undefined reference to `ncnn::Mat::create(int, int, int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(mat_pixel.cpp.o): in function `ncnn::from_gray2rgb(unsigned char const*, int, int, int, ncnn::Mat&, ncnn::Allocator*) [clone .constprop.0] [clone .isra.0]':
+mat_pixel.cpp:(.text+0x614): undefined reference to `ncnn::Mat::create(int, int, int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(mat_pixel.cpp.o): in function `ncnn::Mat::from_pixels(unsigned char const*, int, int, int, int, ncnn::Allocator*)':
+mat_pixel.cpp:(.text+0x1660): undefined reference to `ncnn::Mat::create(int, int, int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: mat_pixel.cpp:(.text+0x1928): undefined reference to `ncnn::Mat::create(int, int, int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(mat_pixel.cpp.o):mat_pixel.cpp:(.text+0x1af8): more undefined references to `ncnn::Mat::create(int, int, int, unsigned long, ncnn::Allocator*)' follow
+/usr/bin/ld: src/libncnn.a(mat_pixel.cpp.o): in function `ncnn::Mat::from_pixels_resize(unsigned char const*, int, int, int, int, int, int, ncnn::Allocator*)':
+mat_pixel.cpp:(.text+0x381c): undefined reference to `ncnn::Mat::create(int, int, unsigned long, int, ncnn::Allocator*)'
+/usr/bin/ld: mat_pixel.cpp:(.text+0x38d4): undefined reference to `ncnn::Mat::create(int, int, unsigned long, int, ncnn::Allocator*)'
+/usr/bin/ld: mat_pixel.cpp:(.text+0x3980): undefined reference to `ncnn::Mat::create(int, int, unsigned long, int, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(mat_pixel.cpp.o): in function `ncnn::Mat::to_pixels_resize(unsigned char*, int, int, int, int) const':
+mat_pixel.cpp:(.text+0x574c): undefined reference to `ncnn::Mat::create(int, int, unsigned long, int, ncnn::Allocator*)'
+/usr/bin/ld: mat_pixel.cpp:(.text+0x5860): undefined reference to `ncnn::Mat::create(int, int, unsigned long, int, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(mat_pixel.cpp.o):mat_pixel.cpp:(.text+0x5900): more undefined references to `ncnn::Mat::create(int, int, unsigned long, int, ncnn::Allocator*)' follow
+/usr/bin/ld: src/libncnn.a(mat_pixel_resize.cpp.o): in function `ncnn::resize_bilinear_c1(unsigned char const*, int, int, int, unsigned char*, int, int, int)':
+mat_pixel_resize.cpp:(.text+0xbe0): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: mat_pixel_resize.cpp:(.text+0xc18): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(mat_pixel_resize.cpp.o): in function `ncnn::resize_bilinear_c2(unsigned char const*, int, int, int, unsigned char*, int, int, int)':
+mat_pixel_resize.cpp:(.text+0x18c8): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: mat_pixel_resize.cpp:(.text+0x1900): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(mat_pixel_resize.cpp.o): in function `ncnn::resize_bilinear_c3(unsigned char const*, int, int, int, unsigned char*, int, int, int)':
+mat_pixel_resize.cpp:(.text+0x268c): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(mat_pixel_resize.cpp.o):mat_pixel_resize.cpp:(.text+0x26c4): more undefined references to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)' follow
+/usr/bin/ld: src/libncnn.a(net.cpp.o): in function `ncnn::Net::create_overwrite_builtin_layer(char const*)':
+net.cpp:(.text+0x1094): undefined reference to `ncnn::layer_to_index(char const*)'
+/usr/bin/ld: src/libncnn.a(net.cpp.o): in function `ncnn::NetPrivate::convert_layout(ncnn::Mat&, ncnn::Layer const*, ncnn::Option const&) const':
+net.cpp:(.text+0x12f0): undefined reference to `ncnn::cast_float16_to_float32(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: net.cpp:(.text+0x13f0): undefined reference to `ncnn::cast_bfloat16_to_float32(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: net.cpp:(.text+0x1514): undefined reference to `ncnn::convert_packing(ncnn::Mat const&, ncnn::Mat&, int, ncnn::Option const&)'
+/usr/bin/ld: net.cpp:(.text+0x170c): undefined reference to `ncnn::cast_float32_to_bfloat16(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: net.cpp:(.text+0x19d0): undefined reference to `ncnn::cast_float32_to_float16(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: net.cpp:(.text+0x1b4c): undefined reference to `ncnn::cast_float32_to_float16(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: src/libncnn.a(net.cpp.o): in function `ncnn::NetPrivate::do_forward_layer(ncnn::Layer const*, std::vector<ncnn::Mat, std::allocator<ncnn::Mat> >&, ncnn::Option const&) const':
+net.cpp:(.text+0x3f28): undefined reference to `ncnn::Mat::clone(ncnn::Allocator*) const'
+/usr/bin/ld: net.cpp:(.text+0x4cec): undefined reference to `ncnn::Mat::clone(ncnn::Allocator*) const'
+/usr/bin/ld: net.cpp:(.text+0x5414): undefined reference to `ncnn::Mat::create_like(ncnn::Mat const&, int, ncnn::Allocator*)'
+/usr/bin/ld: net.cpp:(.text+0x6500): undefined reference to `ncnn::Mat::create_like(ncnn::Mat const&, int, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(net.cpp.o): in function `ncnn::NetPrivate::do_forward_layer(ncnn::Layer const*, std::vector<ncnn::VkMat, std::allocator<ncnn::VkMat> >&, ncnn::VkCompute&, ncnn::Option const&) const':
+net.cpp:(.text+0x8370): undefined reference to `ncnn::VkMat::create_like(ncnn::VkMat const&, int, ncnn::VkAllocator*)'
+/usr/bin/ld: net.cpp:(.text+0x90cc): undefined reference to `ncnn::VkMat::create_like(ncnn::VkMat const&, int, ncnn::VkAllocator*)'
+/usr/bin/ld: src/libncnn.a(net.cpp.o): in function `ncnn::Net::register_custom_layer(char const*, ncnn::Layer* (*)(void*), void (*)(ncnn::Layer*, void*), void*)':
+net.cpp:(.text+0xa750): undefined reference to `ncnn::layer_to_index(char const*)'
+/usr/bin/ld: src/libncnn.a(net.cpp.o): in function `ncnn::Net::load_param(ncnn::DataReader const&)':
+net.cpp:(.text+0xb830): undefined reference to `ncnn::layer_to_index(char const*)'
+/usr/bin/ld: net.cpp:(.text+0xc690): undefined reference to `ncnn::create_layer_vulkan(int)'
+/usr/bin/ld: net.cpp:(.text+0xc6a4): undefined reference to `ncnn::create_layer_cpu(int)'
+/usr/bin/ld: net.cpp:(.text+0xd0ec): undefined reference to `ncnn::create_layer_cpu(int)'
+/usr/bin/ld: src/libncnn.a(net.cpp.o): in function `ncnn::Net::load_param_bin(ncnn::DataReader const&)':
+net.cpp:(.text+0xdd80): undefined reference to `ncnn::create_layer_vulkan(int)'
+/usr/bin/ld: net.cpp:(.text+0xdd94): undefined reference to `ncnn::create_layer_cpu(int)'
+/usr/bin/ld: net.cpp:(.text+0xed94): undefined reference to `ncnn::create_layer_cpu(int)'
+/usr/bin/ld: src/libncnn.a(net.cpp.o): in function `ncnn::Extractor::extract(int, ncnn::Mat&, int)':
+net.cpp:(.text+0x10810): undefined reference to `ncnn::Mat::clone(ncnn::Allocator*) const'
+/usr/bin/ld: net.cpp:(.text+0x10960): undefined reference to `ncnn::cast_bfloat16_to_float32(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: net.cpp:(.text+0x10a4c): undefined reference to `ncnn::convert_packing(ncnn::Mat const&, ncnn::Mat&, int, ncnn::Option const&)'
+/usr/bin/ld: net.cpp:(.text+0x10b6c): undefined reference to `ncnn::cast_float16_to_float32(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: net.cpp:(.text+0x10c58): undefined reference to `ncnn::cast_int8_to_float32(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: net.cpp:(.text+0x10df8): undefined reference to `ncnn::cast_float16_to_float32(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: src/libncnn.a(paramdict.cpp.o): in function `ncnn::ParamDict::load_param(ncnn::DataReader const&)':
+paramdict.cpp:(.text+0x1d88): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: paramdict.cpp:(.text+0x2760): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: paramdict.cpp:(.text+0x29a0): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(paramdict.cpp.o): in function `ncnn::ParamDict::load_param_bin(ncnn::DataReader const&)':
+paramdict.cpp:(.text+0x2fdc): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::submit_and_wait()':
+command.cpp:(.text+0xa60): undefined reference to `ncnn::cast_float16_to_float32(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: command.cpp:(.text+0xacc): undefined reference to `ncnn::cast_bfloat16_to_float32(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkTransfer::record_upload(ncnn::Mat const&, ncnn::VkMat&, ncnn::Option const&, bool)':
+command.cpp:(.text+0x2620): undefined reference to `ncnn::VkMat::create_like(ncnn::Mat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: command.cpp:(.text+0x2810): undefined reference to `ncnn::Mat::reshape(int, ncnn::Allocator*) const'
+/usr/bin/ld: command.cpp:(.text+0x2868): undefined reference to `ncnn::cast_float32_to_float16(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: command.cpp:(.text+0x28f0): undefined reference to `ncnn::VkMat::create_like(ncnn::Mat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: command.cpp:(.text+0x2c44): undefined reference to `ncnn::cast_float32_to_bfloat16(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::record_upload(ncnn::Mat const&, ncnn::VkMat&, ncnn::Option const&)':
+command.cpp:(.text+0x2fc8): undefined reference to `ncnn::convert_packing(ncnn::Mat const&, ncnn::Mat&, int, ncnn::Option const&)'
+/usr/bin/ld: command.cpp:(.text+0x309c): undefined reference to `ncnn::VkMat::create_like(ncnn::Mat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: command.cpp:(.text+0x33b4): undefined reference to `ncnn::cast_float32_to_float16(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: command.cpp:(.text+0x341c): undefined reference to `ncnn::cast_float32_to_bfloat16(ncnn::Mat const&, ncnn::Mat&, ncnn::Option const&)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::record_clone(ncnn::VkMat const&, ncnn::VkMat&, ncnn::Option const&)':
+command.cpp:(.text+0x3e84): undefined reference to `ncnn::VkMat::create_like(ncnn::VkMat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::record_clone(ncnn::Mat const&, ncnn::VkMat&, ncnn::Option const&)':
+command.cpp:(.text+0x3f20): undefined reference to `ncnn::VkMat::create_like(ncnn::Mat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: command.cpp:(.text+0x400c): undefined reference to `ncnn::VkMat::create_like(ncnn::VkMat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::record_clone(ncnn::VkMat const&, ncnn::Mat&, ncnn::Option const&)':
+command.cpp:(.text+0x41c0): undefined reference to `ncnn::Mat::create_like(ncnn::VkMat const&, ncnn::Allocator*)'
+/usr/bin/ld: command.cpp:(.text+0x4474): undefined reference to `ncnn::VkMat::create_like(ncnn::VkMat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::record_download(ncnn::VkMat const&, ncnn::Mat&, ncnn::Option const&)':
+command.cpp:(.text+0x4844): undefined reference to `ncnn::Mat::create_like(ncnn::VkMat const&, ncnn::Allocator*)'
+/usr/bin/ld: command.cpp:(.text+0x4c84): undefined reference to `ncnn::Mat::create(int, int, int, int, unsigned long, int, int, ncnn::Allocator*)'
+/usr/bin/ld: command.cpp:(.text+0x4e70): undefined reference to `ncnn::Mat::create(int, int, int, int, unsigned long, int, int, ncnn::Allocator*)'
+/usr/bin/ld: command.cpp:(.text+0x5028): undefined reference to `ncnn::Mat::create(int, int, unsigned long, int, int, ncnn::Allocator*)'
+/usr/bin/ld: command.cpp:(.text+0x5048): undefined reference to `ncnn::Mat::create(int, unsigned long, int, int, ncnn::Allocator*)'
+/usr/bin/ld: command.cpp:(.text+0x506c): undefined reference to `ncnn::Mat::create(int, int, int, unsigned long, int, int, ncnn::Allocator*)'
+/usr/bin/ld: command.cpp:(.text+0x50c4): undefined reference to `ncnn::Mat::create(int, unsigned long, int, int, ncnn::Allocator*)'
+/usr/bin/ld: command.cpp:(.text+0x50e8): undefined reference to `ncnn::Mat::create(int, int, int, unsigned long, int, int, ncnn::Allocator*)'
+/usr/bin/ld: command.cpp:(.text+0x5108): undefined reference to `ncnn::Mat::create(int, int, unsigned long, int, int, ncnn::Allocator*)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::record_clone(ncnn::VkImageMat const&, ncnn::VkImageMat&, ncnn::Option const&)':
+command.cpp:(.text+0x5208): undefined reference to `ncnn::VkImageMat::create_like(ncnn::VkImageMat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::record_clone(ncnn::VkMat const&, ncnn::VkImageMat&, ncnn::Option const&)':
+command.cpp:(.text+0x5c10): undefined reference to `ncnn::VkImageMat::create_like(ncnn::VkMat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::record_clone(ncnn::Mat const&, ncnn::VkImageMat&, ncnn::Option const&)':
+command.cpp:(.text+0x5cf0): undefined reference to `ncnn::VkImageMat::create_like(ncnn::VkMat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: src/libncnn.a(command.cpp.o): in function `ncnn::VkCompute::record_clone(ncnn::VkImageMat const&, ncnn::VkMat&, ncnn::Option const&)':
+command.cpp:(.text+0x5e70): undefined reference to `ncnn::VkMat::create_like(ncnn::VkImageMat const&, ncnn::VkAllocator*)'
+/usr/bin/ld: src/libncnn.a(modelbin.cpp.o): in function `ncnn::ModelBin::load(int, int, int) const':
+modelbin.cpp:(.text+0x32c): undefined reference to `ncnn::Mat::reshape(int, int, ncnn::Allocator*) const'
+/usr/bin/ld: src/libncnn.a(modelbin.cpp.o): in function `ncnn::ModelBin::load(int, int, int, int) const':
+modelbin.cpp:(.text+0x498): undefined reference to `ncnn::Mat::reshape(int, int, int, ncnn::Allocator*) const'
+/usr/bin/ld: src/libncnn.a(modelbin.cpp.o): in function `ncnn::ModelBin::load(int, int, int, int, int) const':
+modelbin.cpp:(.text+0x614): undefined reference to `ncnn::Mat::reshape(int, int, int, int, ncnn::Allocator*) const'
+/usr/bin/ld: src/libncnn.a(modelbin.cpp.o): in function `ncnn::ModelBinFromDataReader::load(int, int) const':
+modelbin.cpp:(.text+0xc50): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: modelbin.cpp:(.text+0xea4): undefined reference to `ncnn::Mat::from_float16(unsigned short const*, int)'
+/usr/bin/ld: modelbin.cpp:(.text+0xf88): undefined reference to `ncnn::Mat::from_bfloat16(unsigned short const*, int)'
+/usr/bin/ld: modelbin.cpp:(.text+0x1148): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: modelbin.cpp:(.text+0x1240): undefined reference to `ncnn::Mat::from_float16(unsigned short const*, int)'
+/usr/bin/ld: modelbin.cpp:(.text+0x13a0): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: modelbin.cpp:(.text+0x1418): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: modelbin.cpp:(.text+0x14dc): undefined reference to `ncnn::Mat::from_bfloat16(unsigned short const*, int)'
+/usr/bin/ld: modelbin.cpp:(.text+0x15ac): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+/usr/bin/ld: modelbin.cpp:(.text+0x1688): undefined reference to `ncnn::Mat::create(int, unsigned long, ncnn::Allocator*)'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+

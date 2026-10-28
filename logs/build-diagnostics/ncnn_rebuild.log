@@ -1,0 +1,4 @@
+[1/4] Building CXX object src/CMakeFiles/ncnn.dir/layer.cpp.o
+[2/4] Building CXX object src/CMakeFiles/ncnn.dir/mat.cpp.o
+[3/4] Linking CXX static library src/libncnn.a
+[4/4] Linking CXX executable examples/retinaface_profiling

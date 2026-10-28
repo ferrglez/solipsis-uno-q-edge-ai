@@ -18,3 +18,7 @@
 ```bash
 grep -nE 'create_extractor|ex.input|ex.extract|generate_proposals|nms_sorted_bboxes|ITERATION|AVERAGE' ~/solipsis-edge-ai/ncnn/examples/retinaface.cpp
 ```
+
+## Actualización 28-oct-2026
+
+El plan anterior de instrumentar `ex.extract` y el posprocesamiento ya se ejecutó; también se habilitó `NCNN_BENCHMARK` para medir 90 capas Vulkan y se compararon cuatro combinaciones de opciones FP16. Consultar [bitácora de profiling y FP16](10-profiling-vulkan-fp16-2026-10-28.md) para procedimientos, cifras y limitaciones. **Pendiente prioritario:** sincronizar desde el Arduino los cuatro fuentes experimentales, cambios de CMake y logs; después repetir cuatro configuraciones en órdenes alternados. El listado anterior se conserva como estado histórico, no como tareas aún pendientes.

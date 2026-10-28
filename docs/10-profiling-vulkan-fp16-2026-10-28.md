@@ -130,3 +130,24 @@ No subir `ncnn/build/`, binarios, librerías, archivos de terceros sin licencia 
 Repetir las cuatro variantes en tres rondas con orden alternado, guardar `fp16_comparison_{111,000,110,001}_round{1,2,3}.log`, comparar media y dispersión. Posteriormente separar `packed` y `storage`, y cuantificar explícitamente los costos de transferencias/sincronización GPU→CPU.
 
 **Alcance:** esta bitácora registra lo comunicado en la sesión; los logs y fuentes originales locales deben sincronizarse para auditoría completa.
+
+## 7. Validación posterior: tres rondas con orden alternado
+
+**Ejecutado y confirmado en el Arduino**, después de redactar las secciones anteriores. Cada ejecutable se corrió tres veces con los siguientes órdenes: ronda 1 `111 → 000 → 110 → 001`; ronda 2 `001 → 110 → 000 → 111`; ronda 3 `110 → 111 → 001 → 000`. Cada ejecución produjo su propio log `~/solipsis-edge-ai/fp16_comparison_<config>_round<N>.log`.
+
+| Configuración | Ronda 1 (ms) | Ronda 2 (ms) | Ronda 3 (ms) | Media (ms) | Rango (ms) |
+|---|---:|---:|---:|---:|---:|
+| 111 | 401.135 | 400.712 | 401.730 | **401.192** | 1.018 |
+| 000 | 388.680 | 388.986 | 388.814 | **388.827** | 0.306 |
+| 110 | 420.645 | 420.028 | 419.253 | **419.975** | 1.392 |
+| 001 | 389.152 | 388.327 | 388.513 | **388.664** | 0.825 |
+
+La diferencia de las medias entre `000` y `001` es **0.163 ms**, menor que la variación observada entre rondas. Ambas configuraciones son aproximadamente **3.1 %** más rápidas que `111`. La configuración `110` es aproximadamente **4.7 %** más lenta que `111`. Estos resultados refuerzan la asociación entre desactivar conjuntamente `packed`/`storage` y menor latencia; no separan sus efectos individuales ni demuestran una causalidad microarquitectónica.
+
+### 7.1. Estado de los archivos locales y sincronización
+
+La inspección local confirmó que `~/solipsis-edge-ai/ncnn/.git` tiene `origin=https://github.com/Tencent/ncnn.git`. **No hacer push a ese origin**. Los cuatro fuentes experimentales existen bajo `ncnn/examples/` y aparecen sin seguimiento (`??`); `examples/CMakeLists.txt` está modificado. También existen backups y variantes anteriores que deben conservarse o seleccionarse explícitamente, sin confundirlos con los cuatro binarios experimentales. Se verificó la existencia de los 12 logs de la validación y de logs anteriores en `~/solipsis-edge-ai/`.
+
+**Pendiente de publicación:** copiar los archivos propios y logs seleccionados a una copia local de `ferrglez/solipsis-uno-q-edge-ai` y hacer commit/push a ese repositorio. No afirmar que las fuentes o logs están publicados antes de verificarlo. No incorporar `ncnn/build/` ni cambiar el remote del repositorio upstream.
+
+**Nota de vigencia:** la sección 6 describía el siguiente experimento antes de ejecutarse; la sección 7 registra que ya se realizó.

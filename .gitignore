@@ -1,0 +1,16 @@
+# Models, generated binaries, test images, secrets
+*.bin
+*.jpg
+*.jpeg
+*.png
+build/
+CMakeFiles/
+*.o
+*.a
+*.so
+.env
+.env.*
+*.pem
+*.key
+*.log
+__pycache__/

@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.16)
+project(test_ncnn_gpu LANGUAGES CXX)
+find_package(ncnn REQUIRED)
+add_executable(test_gpu test_gpu.cpp)
+target_link_libraries(test_gpu PRIVATE ncnn)

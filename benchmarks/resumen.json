@@ -1,0 +1,12 @@
+{
+  "dispositivo": "Arduino UNO Q",
+  "gpu": "Turnip Adreno 702",
+  "modelo": "RetinaFace mnet.25-opt",
+  "imagen": "512x512 Lena",
+  "repeticiones": 10,
+  "descartadas": 1,
+  "cpu_media_ms": 68.868,
+  "gpu_media_ms": 395.478,
+  "razon_gpu_cpu": 5.74,
+  "nota": "Cronómetro de extremo a extremo dentro del detector; incluye extractor, extracciones y postprocesamiento; no incluye carga de pesos ni guardado de imagen. No equivale a tiempo exclusivo de kernels GPU."
+}

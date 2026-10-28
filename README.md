@@ -78,3 +78,13 @@ Consultar:
 **Nota de seguridad:** el servidor MJPEG está destinado a
 pruebas en una red local de confianza. No incluye
 autenticación ni cifrado HTTPS.
+
+---
+
+## VLM multimodal SmolVLM2 — estado experimental (28-oct-2026)
+
+Se compiló `llama.cpp` con Vulkan y se descargó **SmolVLM2-500M-Video-Instruct Q8_0** con su proyector visual GGUF. **La inferencia con imágenes funciona en CPU** (11.8 tokens/s de generación en una prueba). **El objetivo principal sigue pendiente: ejecutar el VLM de forma correcta y estable en la GPU Adreno 702.** Las pruebas Vulkan provocaron bloqueos `ErrorDeviceLost` / `hangcheck detected gpu lockup`, y la descarga parcial de capas produjo texto incoherente y rendimiento bajo. No confundir la enumeración de Vulkan con inferencia GPU validada.
+
+- [Bitácora VLM: pruebas, comandos, errores y próximos experimentos](docs/12-smolvlm2-vulkan-diagnostico-2026-10-28.md)
+- Los pesos GGUF (~520 MiB) se descargan de [ggml-org en Hugging Face](https://huggingface.co/ggml-org/SmolVLM2-500M-Video-Instruct-GGUF) y no se versionan.
+- **Pendiente:** depurar Vulkan/Turnip y lograr inferencia multimodal acelerada en Adreno 702; CPU es solo la referencia funcional.

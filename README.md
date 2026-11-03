@@ -81,10 +81,23 @@ autenticación ni cifrado HTTPS.
 
 ---
 
-## VLM multimodal SmolVLM2 — estado experimental (28-oct-2026)
+## VLM multimodal SmolVLM2 — estado inicial (28-oct-2026)
 
 Se compiló `llama.cpp` con Vulkan y se descargó **SmolVLM2-500M-Video-Instruct Q8_0** con su proyector visual GGUF. **La inferencia con imágenes funciona en CPU** (11.8 tokens/s de generación en una prueba). **El objetivo principal sigue pendiente: ejecutar el VLM de forma correcta y estable en la GPU Adreno 702.** Las pruebas Vulkan provocaron bloqueos `ErrorDeviceLost` / `hangcheck detected gpu lockup`, y la descarga parcial de capas produjo texto incoherente y rendimiento bajo. No confundir la enumeración de Vulkan con inferencia GPU validada.
 
 - [Bitácora VLM: pruebas, comandos, errores y próximos experimentos](docs/12-smolvlm2-vulkan-diagnostico-2026-10-28.md)
 - Los pesos GGUF (~520 MiB) se descargan de [ggml-org en Hugging Face](https://huggingface.co/ggml-org/SmolVLM2-500M-Video-Instruct-GGUF) y no se versionan.
 - **Pendiente:** depurar Vulkan/Turnip y lograr inferencia multimodal acelerada en Adreno 702; CPU es solo la referencia funcional.
+
+---
+
+## Actualización de investigación — 3 de noviembre de 2026
+
+**Avance:** tras depurar ggml-vulkan se observó generación de **texto** con offload parcial de 10 capas a Vulkan/Adreno 702. **Esto no demuestra todavía ejecución multimodal con imágenes en GPU ni aceleración eficiente**. La inferencia de imagen en CPU sigue siendo la referencia funcional; la ejecución con proyector visual en Vulkan presentó anteriormente `ErrorDeviceLost`. Las cifras exploratorias registradas para texto fueron ~13.7 tokens/s en CPU y ~0.4 tokens/s con offload parcial, sin constituir aún un benchmark controlado equivalente.
+
+**Aclaración de rendimiento:** en el benchmark RetinaFace de este repositorio (imagen de prueba, promedio de iteraciones 2–10), CPU fue **68.868 ms** y GPU **395.478 ms**. No afirmar que esta prueba tuvo menor latencia GPU. Los cuellos de botella se siguen investigando.
+
+- [Progreso y depuración reciente de SmolVLM2 / Vulkan](docs/13-vlm-vulkan-progreso-2026-11-03.md)
+- [Resumen técnico y preguntas para Qualcomm](docs/14-qualcomm-support-brief.md)
+
+**Pendiente:** sincronizar desde el dispositivo los logs y parches locales recientes, validar una inferencia multimodal GPU estable y producir benchmarks pareados. Esta actualización documenta la evidencia comunicada durante la depuración; no incluye una copia completa de los cambios locales de llama.cpp.
